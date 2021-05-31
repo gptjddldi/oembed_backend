@@ -4,6 +4,7 @@
 
 #### 실행
 ```shell
+# 소스코드 받은 후
 sudo docker build -t oembed-test .
 
 sudo docker run -p 8000:8000 oembed-test

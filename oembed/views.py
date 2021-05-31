@@ -1,5 +1,6 @@
 import urllib
 import re
+from json import JSONDecodeError
 
 from django.shortcuts import render
 
@@ -49,8 +50,12 @@ def get_json(url):
 
                     else:
                         endpoint = base_url + "?format=json&url=" + url
+                    try:
+                        return requests.get(endpoint).json()
 
-                    return requests.get(endpoint).json()
+                    except JSONDecodeError:
+                        return {"error": "해당 url 은 유효하지 않습니다."}
+
     else:
         return {"error": "해당 url 은 oEmbed 에 등록되어있지 않습니다."}
 
