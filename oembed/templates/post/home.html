@@ -1,0 +1,131 @@
+{% block contents %}
+    {% load bootstrap4 %}
+<div>
+    Oembed Test
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="확인">
+        <br>
+        <table class="table table-striped">
+          <tbody>
+            <tr>
+              <th scope="row">title</th>
+              <td>{{ data.title }}</td>
+            </tr>
+            <tr>
+              <th scope="row">type</th>
+              <td>{{ data.type }}</td>
+            </tr>
+            <tr>
+              <th scope="row">version</th>
+              <td>
+                {{ data.version }}
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">provider_name</th>
+              <td>
+                {{ data.provider_name }}
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">provider_url</th>
+              <td>
+                  <a href="{{ data.provider_url }}">
+                      {{ data.provider_url }}
+                  </a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">author_name</th>
+              <td>
+                {{ data.author_name }}
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">author_url</th>
+              <td>
+                  <a href="{{ data.author_url }}">
+                      {{ data.author_url }}
+                  </a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">is_plus</th>
+              <td>
+                {{ data.is_plus }}
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">html</th>
+              <td>
+                {{ data.html | safe }}
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">width</th>
+              <td>
+                {{ data.width }}
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">height</th>
+              <td>
+                {{ data.height }}
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">duration</th>
+              <td>
+                {{ data.duration }}
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">description</th>
+              <td>
+                {{ data.description }}
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">thumbnail_url</th>
+              <td>
+                  <img src="{{ data.thumbnail_url }}" alt="썸네일">
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">thumbnail_width</th>
+              <td>
+                {{ data.thumbnail_width }}
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">thumbnail_height</th>
+              <td>
+                {{ data.thumbnail_height }}
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">upload_date</th>
+              <td>
+                {{ data.upload_date }}
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">video_id</th>
+              <td>
+                {{ data.video_id }}
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">uri</th>
+              <td>
+                {{ data.uri }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        {{ data.error }}
+    </form>
+</div>
+{% endblock %}
